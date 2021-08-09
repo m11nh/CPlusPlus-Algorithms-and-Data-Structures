@@ -1,6 +1,7 @@
 # CPlusPlus-Algorithms-and-Data-Structures
 Attempting to implement common data structures and algorithms in C++.  
-**Goal**: To get more familiar with coding in C++, and to re-familiarise myself with the implementation of these common algorithms and data structures.
+<u>**Purpose**<u> 
+To get more familiar with coding in C++, and to re-familiarise myself with the implementation of these common algorithms and data structures.
 
 # Sorting Algorithms
 - Selection Sort
