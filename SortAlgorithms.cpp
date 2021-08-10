@@ -6,11 +6,9 @@ template<typename T>
 auto selectionSort(std::vector<T>& elements) -> void
 {
     for (int i = 0; i < elements.size(); ++i) {
-        int max_elm_val = elements[i]; 
         int max_elm_idx = i; 
         for (int j = i; j < elements.size(); ++j) {
-            if (elements[j] < max_elm_val) {
-                max_elm_val = elements[j]; 
+            if (elements[j] < elements[max_elm_idx]) {
                 max_elm_idx = j; 
             }
         }
@@ -36,11 +34,29 @@ auto bubbleSort(std::vector<T>& elements) -> void
     }
 }
 
+template<typename T>
+auto insertionSort(std::vector<T>& elements) -> void 
+{
+    for (int i = 0; i < elements.size(); ++i) {
+        for (int j = i; j >= 1 ; --j) {
+            if (elements[j] < elements[j-1]) {
+                std::swap(elements[j], elements[j-1]);
+            } else {
+                break;
+            }
+        }
+    }
+}
+
 int main() {
     auto v = std::vector<int>({4, 3, 2, 5, 8});
-    selectionSort(v); 
+    insertionSort(v); 
     for (auto e : v) {
         std::cout << e << "\n"; 
     }
     assert(std::vector<int>({2, 3, 4, 5, 8}) == v);
+    v = std::vector<int>({}); 
+    assert(std::vector<int>{} == v); 
+    v = std::vector<int>({1}); 
+    assert(std::vector<int>{1} == v); 
 }
