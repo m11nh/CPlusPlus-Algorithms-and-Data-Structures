@@ -14,9 +14,7 @@ auto selectionSort(std::vector<T>& elements) -> void
                 max_elm_idx = j; 
             }
         }
-        int tmp = elements[i]; 
-        elements[i] = elements[max_elm_idx]; 
-        elements[max_elm_idx] = tmp; 
+        std::swap(elements[i], elements[max_elm_idx]); 
     }
 }
 
@@ -28,8 +26,7 @@ auto bubbleSort(std::vector<T>& elements) -> void
         for (int j = 0; j < i; ++j) {
             if (elements[j] > elements[j+1]) {
                 int tmp = elements[j]; 
-                elements[j] = elements[j+1]; 
-                elements[j+1] = tmp; 
+                std::swap(elements[j], elements[j+1]);
                 ++swaps;
             }
         }
@@ -41,7 +38,7 @@ auto bubbleSort(std::vector<T>& elements) -> void
 
 int main() {
     auto v = std::vector<int>({4, 3, 2, 5, 8});
-    bubbleSort(v); 
+    selectionSort(v); 
     for (auto e : v) {
         std::cout << e << "\n"; 
     }
