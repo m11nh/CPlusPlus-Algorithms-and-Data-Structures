@@ -14,18 +14,11 @@ Goal is to get more familiar with coding in C++, and to re-familiarise myself wi
 - Bucket Sort
 
 # Data Structures
-## Stack 
-
-## Queue
-
-## Linked List (Singly / Doubly)
-
-## Binary Tree
-
-## Binary Search Tree
-
-## Graph
-
-## Heap
-
-## Hash 
+- Stack 
+- Queue
+- Linked List (Singly / Doubly)
+- Binary Tree
+- Binary Search Tree
+- Graph
+- Heap
+- Hash 
