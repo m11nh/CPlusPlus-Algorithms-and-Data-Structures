@@ -4,10 +4,17 @@
 #include <ostream>
 class Node {
 public: 
-    Node(int value, Node* next) : value_{value}, next_{next} {}
+    Node(int value, Node* next) {}
     Node(int value) : Node(value, nullptr) {} 
 
-private: 
+    ~Node() = default; 
+
+    auto getValue() -> int;
+    auto setValue(int) -> void;
+    auto getNext() -> Node*; 
+    auto setNext(Node*) -> void; 
+
+private:
     int value_;
     Node* next_; 
 };
@@ -18,20 +25,20 @@ public:
     LinkedList();
 
     // Methods
-    auto insertFront(int val) -> void; 
-    auto insertBack(int val) -> void; 
-    auto deleteFront() -> void; 
-    auto deleteBack() -> void; 
-    auto deletePos(int i) -> void; 
+    auto insertFront(int) -> void; 
+    auto insertBack(int) -> void; 
+    auto deleteFront() -> Node*; 
+    auto deleteBack() -> Node*; 
+    auto deletePos(int) -> Node*; 
     auto clear() -> void; 
 
     // Member operator overloads
-    auto operator==(LinkedList& const) -> bool; 
-    auto operator+=(LinkedList& const) -> void; 
+    auto operator==(const LinkedList&) -> bool; 
+    auto operator+=(const LinkedList&) -> void; 
 
     // Friend operator overloads
-    auto friend operator<<(std::ostream& os, const LinkedList) -> std::ostream; 
-    auto friend operator+(LinkedList& const l1, LinkedList& const l2) -> LinkedList; 
+    auto friend operator<<(std::ostream&, const LinkedList) -> std::ostream; 
+    auto friend operator+(const LinkedList&, const LinkedList&) -> LinkedList; 
 
     int size(); 
 
