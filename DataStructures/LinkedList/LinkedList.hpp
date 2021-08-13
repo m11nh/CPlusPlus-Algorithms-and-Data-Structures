@@ -46,6 +46,7 @@ private:
     // Find a way to use better pointers than raw pointers
     Node* head_; 
     Node* tail_;
+    int size_; 
 };
 
 #endif
