@@ -4,10 +4,10 @@
 #include <ostream>
 class Node {
 public: 
-    Node(int value, Node* next) {}
-    Node(int value) : Node(value, nullptr) {} 
+    Node(int, Node*);
+    Node(int);  
 
-    ~Node() = default; 
+    ~Node(); 
 
     auto getValue() -> int;
     auto setValue(int) -> void;
