@@ -31,14 +31,15 @@ public:
     auto deleteBack() -> Node*; 
     auto deletePos(int) -> Node*; 
     auto clear() -> void; 
+    auto isEmpty() -> bool;
 
     // Member operator overloads
     auto operator==(const LinkedList&) -> bool; 
     auto operator+=(const LinkedList&) -> void; 
 
     // Friend operator overloads
-    auto friend operator<<(std::ostream&, const LinkedList) -> std::ostream; 
-    auto friend operator+(const LinkedList&, const LinkedList&) -> LinkedList; 
+    auto friend operator<<(std::ostream&, const LinkedList) -> std::ostream&; 
+    auto friend operator+(LinkedList&, LinkedList&) -> LinkedList; 
 
     int size(); 
 
