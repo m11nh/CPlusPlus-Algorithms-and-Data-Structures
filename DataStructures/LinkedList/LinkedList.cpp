@@ -15,10 +15,14 @@ auto Node::setNext(Node* next) -> void { next_ = next; }
 
 LinkedList::LinkedList() : head_{nullptr}, tail_{nullptr}, size_{0} {}  
 
+auto LinkedList::size() -> int {
+    return size_; 
+}
+
 auto LinkedList::insertFront(int value) -> void  
 {
     auto new_node = new Node(value); 
-    if (size == 0) {
+    if (size_ == 0) {
         head_ = new_node; 
         tail_ = new_node;
     } else {
@@ -31,10 +35,11 @@ auto LinkedList::insertFront(int value) -> void
 auto LinkedList::insertBack(int value) -> void 
 {
     auto new_node = new Node(value); 
-    if (size == 0) {
+    if (size_ == 0) {
         head_ = new_node; 
         tail_ = new_node;
     } else {
+        tail_->setNext(new_node); 
         tail_ = new_node;
     }
     ++size_; 
@@ -42,7 +47,7 @@ auto LinkedList::insertBack(int value) -> void
 
 auto LinkedList::deleteFront() -> Node* 
 {
-    if (size == 0) {
+    if (size_ == 0) {
         throw std::runtime_error("cannot delete from empty list"); 
     } else {
         return deletePos(0); 
@@ -51,7 +56,7 @@ auto LinkedList::deleteFront() -> Node*
 
 auto LinkedList::deleteBack() -> Node* 
 {
-    if (size == 0) {
+    if (size_ == 0) {
         throw std::runtime_error("cannot delete from empty list"); 
     } else {
         return deletePos(size_ - 1); 
@@ -99,7 +104,7 @@ auto operator<<(std::ostream& os, const LinkedList ll) -> std::ostream&
     for (auto curr = ll.head_; curr != nullptr; curr = curr->getNext()) {
         os << curr->getValue() << " -> "; 
     }
-    os << " X\n"; 
+    os << "X\n"; 
     return os;
 }
 
@@ -123,7 +128,6 @@ auto LinkedList::getFront() -> Node* {
     return head_;
 }
 
-int main() {
-    auto list = LinkedList(); 
-    list.insertFront(5); 
+auto LinkedList::getBack() -> Node * {
+    return tail_; 
 }
