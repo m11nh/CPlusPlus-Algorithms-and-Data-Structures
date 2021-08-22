@@ -119,6 +119,10 @@ auto operator+(LinkedList& l1, LinkedList& l2) -> LinkedList
     return new_ll;
 }
 
+auto LinkedList::getFront() -> Node* {
+    return head_;
+}
+
 int main() {
     auto list = LinkedList(); 
     list.insertFront(5); 
